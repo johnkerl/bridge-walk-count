@@ -1,0 +1,9 @@
+# for use with yamm
+:builder=.c=gcc $(OPTCFLAGS) -Wall -Werror
+:object_dir=./objs
+:linker=gcc $(OPTLFLAGS)
+:lib_dir=.
+:misc_lflag=-lm
+
+count_walks.c
+walk_count_lib.c

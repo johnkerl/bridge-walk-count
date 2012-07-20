@@ -1,0 +1,57 @@
+Tom and Shane:
+
+Here (attached) are some data files and corresponding plots.
+
+Throughout, the N's are really 2N+1.  So, I gathered count data for
+N=10,11,...,19,20; wbars have N=21,23,...,39,41.
+
+----------------------------------------------------------------
+1.  w_theta_with_N_series.txt and w_theta_with_N_series.pdf
+
+These are wbar(theta, N) as a function of theta with N series.
+This is on a logy scale.
+
+Note:  This is smooth as a function of theta, finally.
+
+----------------------------------------------------------------
+2.  w_N_with_theta_series.txt and w_N_with_theta_series.pdf
+
+These are wbar(theta, N) as a function of N with theta series.
+This is on a logy scale.
+
+Note:  This shows that an exponential or corrected-power-law fit will
+be appropriate.
+
+----------------------------------------------------------------
+3.  w_ratio_theta_with_N_series.txt and w_ratio_theta_with_N_series.pdf
+
+This is wbar(theta, N) / wbar(0, N) as a function of theta with N series.
+This is not on a logy scale.
+
+Note:  This gives us the kind of curve we expected.  Note however the
+oscillatory behavior, in N, as theta approaches 45 degrees.  The next
+plot will make this clearer.
+
+----------------------------------------------------------------
+4.  w_ratio_N_with_theta_series.txt and w_ratio_N_with_theta_series.pdf
+
+This is wbar(theta, N) / wbar(0, N) as a function of N with theta series.
+
+Note:  Here we can see that, for theta close to zero, wbar(theta, N) is nice as
+a function of N.  For theta close to 45 degrees, especially for 45 degrees
+itself, it oscillates high and low for adjacent N's.  The effect dampens out
+gradually for larger N's, but I don't have the CPU time (in my lifetime) to
+reach N large enough to flatten it out.  Maybe we could average over adjacent
+pairs of N's.
+
+----------------------------------------------------------------
+5.  pgr -grey w_theta_fit_a1.txt and w_theta_fit_a1.pdf
+
+Here I fit wbar(theta, N) to  a b^N  and plot the a.
+
+----------------------------------------------------------------
+6.  pgr -grey w_theta_fit_a3.txt and w_theta_fit_a3.pdf
+
+Here I fit wbar(theta, N) to  a mu^N N^b,  with known mu, and plot the a.
+
+2010-04-23

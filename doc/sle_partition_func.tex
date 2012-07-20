@@ -1,0 +1,270 @@
+\documentclass[12pt]{article}
+\usepackage{verbatim}
+\usepackage{amssymb,amsmath}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{epsfig}
+\begin{comment}
+\setlength{\textwidth}{6.50in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\evensidemargin}{0in}
+\setlength{\textheight}{8.5in}
+\setlength{\topmargin}{-.25in}
+\end{comment}
+%\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{lemma}[corollary]{Lemma}
+\newtheorem{proposition}[corollary]{Proposition}
+\newtheorem{theorem}[corollary]{Theorem}
+%\newtheorem{conjecture}[corollary]{Conjecture}
+\newcommand{\Prob} {{\bf P}}
+\newcommand{\Z}{{\mathbb Z}} 
+\newcommand{\E}{{\bf E}}
+\newcommand{\Es}{{\rm Es}}
+\newcommand{\Cp}{{\rm cap}}
+\newcommand{\R}{{\mathbb{R}}}
+\newcommand{\C}{{\mathbb C}}
+\newcommand{\rad}{{\rm rad}}
+\newcommand{\hdim}{{\rm dim}_h}
+\newcommand{\bound}{\partial_O}
+\newcommand{\dist}{{\rm dist}}
+\newcommand{\x}{{\bf x}}
+\newcommand{\y}{{\bf y}}
+\newcommand{\sphere}{{\cal S}}
+\newcommand{\Var}{{\rm Var}}
+\newcommand{\Q}{{\bf Q}}
+\newcommand{\add}{+}
+\newcommand{\bdim}{{\rm dim}_b}
+\newcommand{\lf}{\lfloor}
+\newcommand{\rf}{\rfloor}
+
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\beann}{\begin{eqnarray*}}
+\newcommand{\eeann}{\end{eqnarray*}}
+
+\def\reff#1{(\ref{#1})}
+
+\def \dHalf  {{\cal H}}
+\def \dhulls {{\cal A}}
+\def \dhcap {{\rm dhcap}}
+\def \Im {{\rm Im}}
+\def \Re {{\rm Re}}
+\def \p {\partial}
+\def \edges {{\cal E}}
+\def \Half {{\mathbb H}}
+\def \reals {{\mathbb R}}
+\def \interior {\rm int}
+\def \LEW{LEW}
+\def \sledim{\hat d}
+\def \Disk {{\mathbb D}}
+\def \Square {{\cal S}}
+\def \diam {{\rm diam}}
+\def \state {{\cal X}}
+\def \eset {\emptyset}
+
+\def \saws {{\cal R}}
+\def \paths {{\cal K}}
+\def \loop {{\cal L}}
+\def \um  {{\bar m}}
+\def \soup {{\cal C}}
+\def \tree {{\cal T}}
+\def \sgn {{\rm sgn}}
+\def \looper {{\cal J}}
+\def \strip{{\cal S}}
+
+\def \scaleexp{{\rho}}
+
+\def \energy {{\cal E}}
+\def \hcap {{\rm hcap}}
+\def \rect{{\cal R}}
+\def \distsub {{\Upsilon}}
+\def \distsubtwo {{\Theta}}
+
+\def \dyad {{\cal D}}
+
+\def \F {{\mathcal F}}
+
+\def \walk {{\mathcal W}}
+\def \hwalk {{\mathcal H}}
+\def \bridge{{\mathcal B}}
+\def \ibridge{{\mathcal I}}
+
+\def \acat {{\oplus}}
+\def \bcat {{\otimes}}
+
+
+\def \Define {\noindent {\bf Definition.} }
+\def  \Pf  {\noindent {\bf Proof.} }
+\def \freemass {{\cal C}}
+\newenvironment{remark}[1][Remark]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{definition}[1][Definition]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{example}[1][Example]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{conjecture}[1][Conjecture]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+
+\begin{document}
+
+
+\section{SLE partition functions}
+
+For a domain $D$ and points $z,w$ on its boundary, we let 
+$H_D(z,w)$ denote the total mass of the SAW's in $D$ from $z$ to $w$. 
+This is a rather vague definition. Our goal is to argue that it 
+should be conformally covariant in the following sense. If $\Phi$ is 
+a conformal map on $D$, then 
+\bea
+H_D (z,w)  = 
+[\Phi_A^\prime(z) \Phi_A^\prime(w)]^{5/8} 
+H_{\Phi(D)}(\Phi(z),\Phi(w)) 
+\label{eqzz}
+\eea
+This formula should not be taken too literally. In particular, there 
+are lattice effects to be taken into account. 
+
+Let 
+\beann
+Z(0,n) = \sum_{\omega:0 \rightarrow n, \omega \subset \Half} \beta^{|\omega|} 
+\eeann
+The sum is over all self-avoiding walks that start at $(0,0)$, end 
+at $(n,0)$  and stay in the upper half plane except for their endpoints.
+We assume that there is an exponent $\scaleexp$ such that 
+the limit 
+\beann
+c=\lim_{n \rightarrow \infty} Z(0,n) n^\rho
+\eeann
+exists. Now let $x >0$. Let $[nx]$ denote the integer closest to $x$. 
+We have
+\beann
+\lim_{n \rightarrow \infty} Z(0,[nx]) n^\scaleexp = 
+\lim_{n \rightarrow \infty}  Z(0,[nx]) [nx]^\scaleexp 
+{n^\scaleexp \over [nx]^\scaleexp}
+= {c \over x^\scaleexp}
+\eeann
+This shows that 
+\bea
+H_\Half(0,x) = \frac{1}{x^\scaleexp} \, H_\Half(0,1)
+\label{scaling}
+\eea
+
+Let $A \subset \Half$ be such that $\Half \setminus A$ is a simply connected
+domain which is bounded away from $0$. The scaling limit of the 
+self-avoiding walk is conjectured to be $SLE_{8/3}$, a 
+chordal restriction measure.
+The probability that a SAW $\gamma$ in $\Half$ from $0$ to $\infty$ does not 
+enter $A$ is given by 
+\beann
+P(\gamma \cap A = \emptyset) = [\phi_A^\prime(0)]^{5/8}
+\eeann
+where $\phi_A$ is a conformal map from $\Half \setminus A$ to $\Half$
+which sends $\infty$ to itself and has derivative $1$ at $\infty$. 
+(This means $\phi(z) \asymp z$ as $z \rightarrow \infty$.)
+If we assume that the scaling limit of the probability mesasure
+for the SAW between two points is conformally invariant,
+then we can find the probability that a SAW in $\Half$ from $0$ to a 
+real $x$ hits $A$. Denote this probability by 
+$P_{\Half,0,x}(\gamma \cap A =\emptyset)$.
+Let $\psi_x$ be a Moibius transformation of 
+$\Half$ to itself which fixes $0$ and sends $x$ to $\infty$. 
+Then 
+\beann
+P_{\Half,0,x}(\gamma \cap A =\emptyset)=  [\phi_{\psi_x(A)}^\prime(0)]^{5/8}
+\eeann
+We can express this probability as a ratio of partition functions
+\beann
+P_{\Half,0,x}(\gamma \cap A =\emptyset) = {H_{\Half \setminus A} (0,x) 
+\over H_\Half(0,x) }
+\eeann
+So we have the following transformation result for partition functions
+\beann
+H_{\Half \setminus A} (0,x)  = [\phi_{\psi_x(A)}^\prime(0)]^{5/8} H_\Half(0,x) 
+\eeann
+
+Recall that $\phi_{\psi_x(A)}$ is a conformal map that takes 
+$\Half \setminus \psi_x(A)$ to $\Half$ and fixes $0$ and $\infty$. 
+Letting
+\beann
+\phi_{x,A}= \psi_x^{-1} \circ \phi_{\psi_x(A)} \circ \psi_x,
+\eeann
+$\phi_{x,A}$ maps $\Half \setminus A$ to $\Half$ and fixes $0$ 
+and $x$. 
+Since $\psi_x(0)=0$, $\phi_{\psi_x(A)}(0)=0$, and 
+$(\psi_x^{-1})^\prime(0)=1/\psi_x^\prime(0)$, 
+we have that 
+\beann
+\phi_{x,A}^\prime(0) = \phi_{\psi(A)}^\prime(0) 
+\eeann
+So we have
+\bea
+H_{\Half \setminus A} (0,x)  = [\phi_{x,A}^\prime(0)]^{5/8} H_\Half(0,x) 
+\label{trans}
+\eea
+Of course there is more that one conformal map of $\Half \setminus A$
+to $\Half$ that fixes $0$ and $x$. The particular map we defined has 
+$\phi_{x,A}^\prime(x)=1$. 
+A general conformal map $\Phi_{x,A}$ of $\Half \setminus A$
+to $\Half$ that fixes $0$ and $x$ can be written as 
+$\Phi_{x,A} = \chi \circ \phi_{x,A}$ 
+where $\chi$ is a Moibius transformation of $\Half$ to itself that 
+fixes $0$ and $x$. 
+Such transformations are given by 
+\beann 
+\chi(z) = {z \over c(z-x)+1}
+\eeann
+where $c \in \reals$. 
+A short computation shows $\chi^\prime(0) \chi^\prime(x)=1$. 
+Since 
+\beann
+\Phi_{x,A}^\prime(0) &=& \chi^\prime(0) \phi_{x,A}^\prime(0) \\
+\Phi_{x,A}^\prime(x) &=& \chi^\prime(x) \phi_{x,A}^\prime(x) = \chi^\prime(x) 
+\eeann
+we find
+\beann
+\phi_{x,A}^\prime(0) = \Phi_{x,A}^\prime(0)  \Phi_{x,A}^\prime(x)  
+\eeann
+So \reff{trans} can be written as 
+\bea
+H_{\Half \setminus A} (0,x)  = 
+[\Phi_{x,A}^\prime(0) \Phi_{x,A}^\prime(x)]^{5/8} H_\Half(0,x) 
+\label{eqaa}
+\eea
+where $\Phi_{x,A}$ is any conformal map of $\Half \setminus A$ to $\Half$ 
+which fixes $0$ and $x$.
+
+
+Now let $\Phi_A$ be a conformal map that maps $\Half \setminus A$
+onto $\Half$ and fixes $0$ but not $x$. Let $\lambda=\Phi_A(x)/x$. 
+Then $\Phi_{x,A} = \lambda^{-1} \Phi_A$ fixes $x$, and so \reff{eqaa}
+implies
+\beann
+H_{\Half \setminus A} (0,x)  = 
+[\Phi_A^\prime(0) \Phi_A^\prime(x)]^{5/8} \lambda^{-5/4} H_\Half(0,x) 
+\label{eqbb}
+\eeann
+Using \reff{scaling} we can rewrite this as 
+\bea
+H_{\Half \setminus A} (0,x)  = 
+[\Phi_A^\prime(0) \Phi_A^\prime(x)]^{5/8} \lambda^{\rho-5/4} 
+H_\Half(0,\Phi_A(x)) 
+\eea
+
+Until now we have been assuming the conformal map $\Phi_A$ fixes $0$. 
+By adding a real constant to the map we can relax this constraint. 
+Since $H_\Half(x,y) = H_\Half(y-x)$, we conclude that for any 
+conformal map of $\Half \setminus A$ to $\Half$, 
+\bea
+H_{\Half \setminus A} (0,x)  = 
+[\Phi_A^\prime(0) \Phi_A^\prime(x)]^{5/8} \lambda^{\rho-5/4} 
+H_\Half(\Phi_A(0),\Phi_A(x)) 
+\eea
+If $\rho=5/4$ this estabilishes \reff{eqzz} for a limited 
+class of domains. 
+
+
+\end{document}
+\end
